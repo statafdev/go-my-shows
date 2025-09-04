@@ -1,7 +1,12 @@
-export const Search = () => {
+export const Search = ({ value, setValue }) => {
   return (
     <section id="search" className="search">
-      <input type="text" placeholder="Find your favorite shows" />
+      <input
+        value={value}
+        type="text"
+        placeholder="Find your favorite shows"
+        onChange={(e) => setValue(e.target.value)}
+      />
       <button>🔎</button>
     </section>
   );

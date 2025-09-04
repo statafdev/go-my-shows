@@ -1,5 +1,4 @@
 export const Card = ({ movie }) => {
-  +console.log("from card : ", movie);
   return (
     <div className="card">
       <div
@@ -9,12 +8,12 @@ export const Card = ({ movie }) => {
         }}
       >
         <img
-          src={movie.image.original}
+          src={movie?.show?.image?.original}
           alt={"name"}
           style={{ width: "100%" }}
         />
       </div>
-      <div className="desc">{movie.name}</div>
+      <div className="desc">{movie?.show?.name}</div>
     </div>
   );
 };
