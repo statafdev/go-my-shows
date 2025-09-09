@@ -1,19 +1,29 @@
-export const Card = ({ movie }) => {
+import { Link } from "react-router-dom";
+
+export const Card = ({ movie, search }) => {
   return (
-    <div className="card">
-      <div
-        className="poster"
-        style={{
-          backgroundColor: "black",
-        }}
-      >
-        <img
-          src={movie?.show?.image?.original}
-          alt={"name"}
-          style={{ width: "100%" }}
-        />
+    <Link to={"/show"} state={movie}>
+      <div className="card">
+        <div
+          className="poster"
+          style={{
+            backgroundColor: "black",
+          }}
+        >
+          <img
+            src={
+              search.length > 0
+                ? movie?.show?.image?.original
+                : movie?.image?.original
+            }
+            alt={"name"}
+            style={{ width: "100%" }}
+          />
+        </div>
+        <div className="desc">
+          {search.length > 0 ? movie?.show?.name : movie?.name}
+        </div>
       </div>
-      <div className="desc">{movie?.show?.name}</div>
-    </div>
+    </Link>
   );
 };
